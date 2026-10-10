@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/personnes"
+           targetNamespace="http://example.com/personnes"
+           elementFormDefault="qualified">
+
+    <!-- ======================== TYPE Personne ======================== -->
+    <xs:complexType name="personne">
+        <xs:sequence>
+            <xs:element name="id"     type="xs:long"   minOccurs="0"/>
+            <xs:element name="nom"    type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="age"    type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ======================== addPersonne ======================== -->
+    <xs:element name="addPersonneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nom"    type="xs:string"/>
+                <xs:element name="prenom" type="xs:string"/>
+                <xs:element name="age"    type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addPersonneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personne" type="tns:personne"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ======================== getPersonne ======================== -->
+    <xs:element name="getPersonneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPersonneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personne" type="tns:personne"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ======================== getAllPersonnes ======================== -->
+    <xs:element name="getAllPersonnesRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="getAllPersonnesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personnes" type="tns:personne"
+                            minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ======================== updatePersonne ======================== -->
+    <xs:element name="updatePersonneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id"     type="xs:long"/>
+                <xs:element name="nom"    type="xs:string"/>
+                <xs:element name="prenom" type="xs:string"/>
+                <xs:element name="age"    type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updatePersonneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personne" type="tns:personne"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ======================== deletePersonne ======================== -->
+    <xs:element name="deletePersonneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deletePersonneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
