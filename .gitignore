@@ -1,17 +1,23 @@
-# Compiled output
+# Maven
 target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# IDE files
+# IDE
 .idea/
 *.iml
 .vscode/
-*.classpath
-*.project
-.settings/
+*.class
 
-# OS files
-.DS_Store
-Thumbs.db
+# Spring Boot
+*.jar
+*.war
+*.ear
 
 # Logs
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
